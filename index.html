@@ -1,77 +1,445 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aldo Monroy – Estratega Multidisciplinario</title>
- <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Aldo Monroy - Analista de Procesos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Incluir Font Awesome para iconos de marca (WhatsApp, LinkedIn) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJz960wEHN80R57b4uR0u4A7a1jJ82P+b22aXgM0BfE8zX4i1Q+8Zl/Ff2l8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <style>
+    /* Estilo para el fondo del body */
     body {
       font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
-<body class="bg-white text-gray-800">
-
-  <!-- Contenedor principal -->
-  <div class="max-w-4xl mx-auto p-8">
-
-    <!-- Hero -->
-    <section class="text-center py-12">
-      <h1 class="text-5xl font-bold text-gray-900">Aldo Monroy</h1>
-      <p class="text-2xl text-gray-500 mt-4">Estratega Multidisciplinario</p>
-    </section>
-
-    <!-- Frase -->
-    <section class="max-w-2xl mx-auto py-6 text-center">
-      <p class="text-lg text-gray-600 italic">"Líder en automatización de procesos con enfoque en la evolución personal."</p>
-    </section>
-
-    <!-- Proyectos -->
-    <section class="py-8">
-      <h2 class="text-3xl font-semibold text-center mb-6">Proyectos</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-md transition">
-          <strong class="block text-lg text-gray-900">Marshall Service</strong>
-          <span class="text-sm text-gray-500">IA aplicada</span>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Navbar Responsive -->
+  <nav class="bg-white shadow fixed w-full z-10 top-0 left-0">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo/Nombre -->
+        <div>
+          <a href="#" class="flex items-center text-gray-700 font-extrabold text-xl" data-i18n="logo-name">ALDO MONROY</a>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-md transition">
-          <strong class="block text-lg text-gray-900">Iscala IT</strong>
-          <span class="text-sm text-gray-500">Automatización</span>
+        
+        <!-- Links Desktop (Iconos de Contacto + Botón de Idioma) -->
+        <div class="hidden md:flex items-center space-x-4">
+          
+          <!-- Botón de Idioma -->
+          <button id="lang-button-desktop" onclick="toggleLanguage()" 
+                  class="bg-blue-500 text-white px-3 py-1.5 rounded-full text-sm font-semibold hover:bg-blue-600 transition duration-300 shadow-md">
+            English
+          </button>
+
+          <!-- Icono de Correo (Envelope) - Heroicons -->
+          <a href="mailto:ing.aldomonroyg@gmail.com" 
+             class="p-2 text-gray-700 hover:text-blue-600 transition duration-300 rounded-full hover:bg-gray-100" 
+             title="Correo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </a>
+
+          <!-- Icono de WhatsApp - Font Awesome -->
+          <a href="https://wa.me/525535527312" target="_blank" 
+             class="p-2 text-gray-700 hover:text-green-500 transition duration-300 rounded-full hover:bg-gray-100" 
+             title="WhatsApp">
+            <i class="fab fa-whatsapp w-6 h-6 text-2xl"></i>
+          </a>
+
+          <!-- Icono de LinkedIn - Font Awesome -->
+          <a href="https://www.linkedin.com/in/aldomonroyg/" target="_blank" 
+             class="p-2 text-gray-700 hover:text-blue-700 transition duration-300 rounded-full hover:bg-gray-100" 
+             title="LinkedIn">
+            <i class="fab fa-linkedin w-6 h-6 text-2xl"></i>
+          </a>
         </div>
-        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-md transition">
-          <strong class="block text-lg text-gray-900">Enviopack México</strong>
-          <span class="text-sm text-gray-500">Estrategia</span>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-md transition">
-          <strong class="block text-lg text-gray-900">NTT DATA</strong>
-          <span class="text-sm text-gray-500">Consultoría</span>
+
+        <!-- Botón Hamburguesa (solo visible en móvil) -->
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="mobile-menu-button p-2 rounded-md hover:bg-gray-100">
+            <!-- Icono de Hamburguesa de Heroicons -->
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+    
+    <!-- Links Mobile (Menú desplegable) -->
+    <div id="menu" class="hidden md:hidden bg-white border-t border-gray-100">
 
-    <!-- Habilidades -->
-    <section class="py-8">
-      <h2 class="text-3xl font-semibold text-center mb-6">Habilidades</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-        <div class="bg-gray-100 p-4 rounded-xl text-center text-gray-700">Prompt Engineering</div>
-        <div class="bg-gray-100 p-4 rounded-xl text-center text-gray-700">Gestión de Proyectos</div>
-        <div class="bg-gray-100 p-4 rounded-xl text-center text-gray-700">Estrategia Tecnológica</div>
-        <div class="bg-gray-100 p-4 rounded-xl text-center text-gray-700">Liderazgo Evolutivo</div>
+      <!-- Botón de Idioma Móvil -->
+      <button id="lang-button-mobile" onclick="toggleLanguage()" 
+              class="w-full text-left flex items-center gap-2 py-3 px-4 text-base text-gray-700 hover:bg-gray-100 transition duration-150 border-b border-gray-100">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.028 18.028 0 0020.175 6.5M10.12 18.5c.783 0 1.5-.23 2.1-.637M12 17a4 4 0 01-4 4h8a4 4 0 004-4" />
+        </svg>
+        <span data-i18n="switch-to-lang">Cambiar a English</span>
+      </button>
+      
+      <!-- Correo -->
+      <a href="mailto:ing.aldomonroyg@gmail.com" class="flex items-center gap-2 py-3 px-4 text-base text-gray-700 hover:bg-gray-100 transition duration-150">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg> <span data-i18n="email-label">Correo:</span> ing.aldomonroyg@gmail.com
+      </a>
+      
+      <!-- WhatsApp -->
+      <a href="https://wa.me/525535527312" target="_blank" class="flex items-center gap-2 py-3 px-4 text-base text-gray-700 hover:bg-gray-100 transition duration-150">
+        <i class="fab fa-whatsapp w-5 h-5 text-green-500"></i> <span data-i18n="whatsapp-label">WhatsApp:</span> +52 55 3552 7312
+      </a>
+      
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/aldomonroyg/" target="_blank" class="flex items-center gap-2 py-3 px-4 text-base text-gray-700 hover:bg-gray-100 transition duration-150">
+        <i class="fab fa-linkedin w-5 h-5 text-blue-700"></i> <span data-i18n="linkedin-label">LinkedIn:</span> /in/aldomonroyg/
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-white text-center pt-28 pb-12 px-4 shadow-md">
+    <h1 class="text-4xl font-extrabold text-gray-900" data-i18n="hero-title">ALDO MONROY</h1>
+    <p class="text-xl text-gray-600 mt-2" data-i18n="hero-subtitle">Analista de Procesos y Optimización Logística | IT Business Analyst Jr.</p>
+    <div class="mt-6">
+      <a href="#contacto" id="hero-button" data-i18n="hero-button" class="bg-blue-600 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105 inline-block font-semibold">
+        Contáctame
+      </a>
+    </div>
+  </header>
+
+  <!-- Perfil Profesional -->
+  <section class="max-w-4xl mx-auto p-6 md:p-10 mt-8 bg-white rounded-xl shadow-lg">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-600 pb-3 mb-6 text-gray-800" data-i18n="profile-title">Perfil Profesional</h2>
+    <p class="text-lg text-gray-700 leading-relaxed" data-i18n="profile-text">
+      Analista de Procesos y Estratega Operativo con experiencia en mapeo de flujos (<span class="font-semibold">As-Is / To-Be, BPM Bizagi</span>), optimización de operaciones y <span class="font-semibold">logística inversa</span>, e implementación de soluciones tecnológicas (<span class="font-semibold">ERP/Odoo</span>, soporte TI). Experto en automatización de procesos, mejora continua y análisis de rentabilidad, capaz de transformar operaciones complejas en flujos eficientes y medibles.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">BPM/Bizagi</span>
+      <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm" data-i18n="skill-logistics">Logística Inversa</span>
+      <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">ERP/Odoo</span>
+      <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm">KPIs</span>
+      <span class="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium shadow-sm" data-i18n="skill-digital">Transformación Digital</span>
+    </div>
+  </section>
+
+  <!-- Experiencia Profesional -->
+  <section class="bg-gray-100 p-6 md:p-10 mt-8 rounded-xl">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold border-b-4 border-blue-600 pb-3 mb-8 text-gray-800" data-i18n="experience-title">Experiencia Profesional</h2>
+      <div class="space-y-8">
+        <!-- Experiencia 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition duration-300">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="job1-title">Estratega de Operaciones y Servicios</h3>
+          <p class="text-sm text-blue-600 font-semibold mt-1" data-i18n="job1-company">Marshall Service | 2018 – Actual</p>
+          <ul class="list-disc list-inside text-gray-700 mt-3 space-y-1">
+            <li data-i18n="job1-li1">Optimización operativa: transformé un taller en Centro de Servicio Integral 360°.</li>
+            <li data-i18n="job1-li2">Desarrollé WebApp de Cotizaciones reduciendo <span class="font-semibold">40% el tiempo de respuesta.</span></li>
+            <li data-i18n="job1-li3">Implementé ERP (Odoo) mejorando control financiero e inventario.</li>
+          </ul>
+        </div>
+        <!-- Experiencia 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition duration-300">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="job2-title">Analista de Logística Inversa</h3>
+          <p class="text-sm text-blue-600 font-semibold mt-1" data-i18n="job2-company">EnvíoPack | 2023 – 2024</p>
+          <ul class="list-disc list-inside text-gray-700 mt-3 space-y-1">
+            <li data-i18n="job2-li1">Gestioné devoluciones reduciendo pérdidas de inventario.</li>
+            <li data-i18n="job2-li2">Analicé productos devueltos para estrategias de reventa.</li>
+          </ul>
+        </div>
+        <!-- Experiencia 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition duration-300">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="job3-title">Especialista de Soluciones Nivel 1</h3>
+          <p class="text-sm text-blue-600 font-semibold mt-1" data-i18n="job3-company">NTT DATA | 2022 – 2023</p>
+          <ul class="list-disc list-inside text-gray-700 mt-3 space-y-1">
+            <li data-i18n="job3-li1">Resolví incidentes en Service Desk cumpliendo SLA.</li>
+            <li data-i18n="job3-li2">Documenté soluciones técnicas mejorando eficiencia en <span class="font-semibold">30%</span>.</li>
+          </ul>
+        </div>
+        <!-- Experiencia 4 (Ahora Remax) -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition duration-300">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="job4-title">Becario de Sistemas y Marketing</h3>
+          <p class="text-sm text-blue-600 font-semibold mt-1" data-i18n="job4-company">Remax | 2020 – 2021</p>
+          <ul class="list-disc list-inside text-gray-700 mt-3 space-y-1">
+            <li data-i18n="job4-li1">Soporte TI y mantenimiento de equipos.</li>
+            <li data-i18n="job4-li2">Diseño de materiales básicos de marketing digital.</li>
+          </ul>
+        </div>
+        <!-- Experiencia 5 (Ahora Klassco) -->
+        <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition duration-300">
+          <h3 class="text-xl font-bold text-gray-900" data-i18n="job5-title">Becario de Procesos de Negocios</h3>
+          <p class="text-sm text-blue-600 font-semibold mt-1" data-i18n="job5-company">Klassco | 2018 – 2019</p>
+          <ul class="list-disc list-inside text-gray-700 mt-3 space-y-1">
+            <li data-i18n="job5-li1">Mapeo y documentación de procesos críticos (Bizagi).</li>
+            <li data-i18n="job5-li2">Elaboración de manuales y guías técnicas.</li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Contacto -->
-    <section class="py-8 text-center">
-      <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
-      <p class="text-lg text-gray-600">📧 <a href="mailto:ing.aldomonroygomez@gmail.com" class="text-blue-600 underline hover:text-blue-800">ing.aldomonroygomez@gmail.com</a></p>
-      <p class="text-lg text-gray-600 mt-2">🔗 <a href="https://www.linkedin.com/in/aldo-monroy-a15a8529a/" class="text-blue-600 underline hover:text-blue-800" target="_blank">LinkedIn</a></p>
-      <p class="text-lg text-gray-600 mt-2">📱 <a href="https://wa.me/525535527312" class="text-green-600 underline hover:text-green-800" target="_blank">WhatsApp</a></p>
-</section>
+  <!-- Educación y Certificaciones -->
+  <section class="max-w-4xl mx-auto p-6 md:p-10 mt-8 bg-white rounded-xl shadow-lg">
+    <h2 class="text-3xl font-bold border-b-4 border-blue-600 pb-3 mb-6 text-gray-800" data-i18n="education-title">Formación Académica</h2>
+    <p class="flex items-center gap-3 text-lg text-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M12 4H3m9 0v16" />
+      </svg>
+      <strong>
+        <a href="https://drive.google.com/file/d/10A-6pGuVxAa0pSkR6O4Mnk68l5kRKuXB/view?pli=1" target="_blank" class="text-blue-600 hover:underline" data-i18n="degree-link">
+          Licenciatura en Ingeniería en TIC
+        </a>
+      </strong>
+      <span data-i18n="degree-institution">– Universidad Mexiquense del Bicentenario (2017 – 2021)</span>
+    </p>
 
-  </div>
+    <h2 class="text-3xl font-bold border-b-4 border-blue-600 pb-3 mt-10 mb-6 text-gray-800" data-i18n="cert-title">Certificaciones</h2>
+    <ul class="space-y-3 text-gray-700">
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m0 6V8a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h8z" />
+        </svg>
+        <a href="https://www.credly.com/badges/1860bda2-e5f2-4139-8a11-e1e5e4c7b324/linked_in_profile" target="_blank" class="text-blue-600 hover:underline" data-i18n="cert1">
+          Scrum Fundamentals Certified / Scrum Master – CertiProf
+        </a>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M11 11V7a1 1 0 112 0v4h4a1 1 0 110 2h-4v4a1 1 0 11-2 0v-4H7a1 1 0 110-2h4z" />
+        </svg>
+        <a href="https://www.coursera.org/professional-certificates/google-project-management" target="_blank" class="text-blue-600 hover:underline" data-i18n="cert2">
+          Certificado profesional de Gestión de proyectos – Google
+        </a>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h4l2 3h10v10H3V7z" />
+        </svg>
+        <a href="https://www.coursera.org/account/accomplishments/verify/3W8UQMRIUDEB" target="_blank" class="text-blue-600 hover:underline" data-i18n="cert3">
+          Fundamentos de la gestión de proyectos – Google / Coursera
+        </a>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3" />
+        </svg>
+        <a href="https://platzi.com/p/Aldo.Monroy/" target="_blank" class="text-blue-600 hover:underline" data-i18n="cert4">
+          Optimización de Procesos y BPM – Platzi
+        </a>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17h4.5M4 6h16v12H4V6z" />
+        </svg>
+        <span class="text-gray-700" data-i18n="cert5">ERP/Odoo</span>
+      </li>
+      <li class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v4M8 6h8M6 12h12M6 18h12" />
+        </svg>
+        <span class="text-gray-700" data-i18n="cert6">Prompt Engineering / ChatGPT</span>
+      </li>
+    </ul>
+  </section>
 
+  <!-- Footer -->
+  <footer id="contacto" class="bg-gray-800 text-white text-center p-8 mt-10 rounded-t-xl shadow-inner">
+    <p class="text-2xl font-bold" data-i18n="footer-cta">¿Trabajamos juntos?</p>
+    <p class="mt-2 text-gray-300" data-i18n="footer-text">Disponible para oportunidades en análisis de procesos, optimización logística y transformación digital.</p>
+    
+    <!-- Footer con Iconos de Contacto -->
+    <div class="flex flex-col md:flex-row justify-center gap-8 mt-6">
+      
+      <!-- Correo -->
+      <a href="mailto:ing.aldomonroyg@gmail.com" class="flex items-center gap-3 hover:underline text-lg text-white hover:text-blue-400 transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        ing.aldomonroyg@gmail.com
+      </a>
+      
+      <!-- WhatsApp -->
+      <a href="https://wa.me/525535527312" target="_blank" class="flex items-center gap-3 hover:underline text-lg text-white hover:text-green-400 transition duration-300">
+        <i class="fab fa-whatsapp w-6 h-6 text-2xl"></i>
+        +52 55 3552 7312
+      </a>
+      
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/aldomonroyg/" target="_blank" class="flex items-center gap-3 hover:underline text-lg text-white hover:text-blue-500 transition duration-300">
+        <i class="fab fa-linkedin w-6 h-6 text-2xl"></i>
+        LinkedIn
+      </a>
+    </div>
+
+    <p class="text-xs text-gray-500 mt-6" data-i18n="footer-credits">Portafolio diseñado con Tailwind CSS.</p>
+  </footer>
+
+  <!-- Script para el Menú Responsive y el Cambio de Idioma -->
+  <script>
+    // Objeto de traducción
+    const translations = {
+      es: {
+        "switch-to-lang": "Cambiar a English",
+        "logo-name": "ALDO MONROY",
+        "email-label": "Correo:",
+        "whatsapp-label": "WhatsApp:",
+        "linkedin-label": "LinkedIn:",
+        "hero-subtitle": "Analista de Procesos y Optimización Logística | IT Business Analyst Jr.",
+        "hero-button": "Contáctame",
+        "profile-title": "Perfil Profesional",
+        "profile-text": 'Analista de Procesos y Estratega Operativo con experiencia en mapeo de flujos (<span class="font-semibold">As-Is / To-Be, BPM Bizagi</span>), optimización de operaciones y <span class="font-semibold">logística inversa</span>, e implementación de soluciones tecnológicas (<span class="font-semibold">ERP/Odoo</span>, soporte TI). Experto en automatización de procesos, mejora continua y análisis de rentabilidad, capaz de transformar operaciones complejas en flujos eficientes y medibles.',
+        "skill-logistics": "Logística Inversa",
+        "skill-digital": "Transformación Digital",
+        "experience-title": "Experiencia Profesional",
+        "job1-title": "Estratega de Operaciones y Servicios",
+        "job1-company": "Marshall Service | 2018 – Actual",
+        "job1-li1": "Optimización operativa: transformé un taller en Centro de Servicio Integral 360°.",
+        "job1-li2": 'Desarrollé WebApp de Cotizaciones reduciendo <span class="font-semibold">40% el tiempo de respuesta.</span>',
+        "job1-li3": "Implementé ERP (Odoo) mejorando control financiero e inventario.",
+        "job2-title": "Analista de Logística Inversa",
+        "job2-company": "EnvíoPack | 2023 – 2024",
+        "job2-li1": "Gestioné devoluciones reduciendo pérdidas de inventario.",
+        "job2-li2": "Analicé productos devueltos para estrategias de reventa.",
+        "job3-title": "Especialista de Soluciones Nivel 1",
+        "job3-company": "NTT DATA | 2022 – 2023",
+        "job3-li1": "Resolví incidentes en Service Desk cumpliendo SLA.",
+        "job3-li2": 'Documenté soluciones técnicas mejorando eficiencia en <span class="font-semibold">30%</span>.',
+        "job4-title": "Becario de Sistemas y Marketing",
+        "job4-company": "Remax | 2020 – 2021",
+        "job4-li1": "Soporte TI y mantenimiento de equipos.",
+        "job4-li2": "Diseño de materiales básicos de marketing digital.",
+        "job5-title": "Becario de Procesos de Negocios",
+        "job5-company": "Klassco | 2018 – 2019", // Corregido a Klassco
+        "job5-li1": "Mapeo y documentación de procesos críticos (Bizagi).",
+        "job5-li2": "Elaboración de manuales y guías técnicas.",
+        "education-title": "Formación Académica",
+        "degree-link": "Licenciatura en Ingeniería en TIC",
+        "degree-institution": "– Universidad Mexiquense del Bicentenario (2017 – 2021)",
+        "cert-title": "Certificaciones",
+        "cert1": "Scrum Fundamentals Certified / Scrum Master – CertiProf",
+        "cert2": "Certificado profesional de Gestión de proyectos – Google",
+        "cert3": "Fundamentos de la gestión de proyectos – Google / Coursera",
+        "cert4": "Optimización de Procesos y BPM – Platzi",
+        "cert5": "ERP/Odoo",
+        "cert6": "Prompt Engineering / ChatGPT",
+        "footer-cta": "¿Trabajamos juntos?",
+        "footer-text": "Disponible para oportunidades en análisis de procesos, optimización logística y transformación digital.",
+        "footer-credits": "Portafolio diseñado con Tailwind CSS.",
+      },
+      en: {
+        "switch-to-lang": "Switch to Spanish",
+        "logo-name": "ALDO MONROY",
+        "email-label": "Email:",
+        "whatsapp-label": "WhatsApp:",
+        "linkedin-label": "LinkedIn:",
+        "hero-subtitle": "Process Analyst and Logistics Optimization | IT Business Analyst Jr.",
+        "hero-button": "Contact Me",
+        "profile-title": "Professional Profile",
+        "profile-text": 'Process Analyst and Operational Strategist with experience in flow mapping (<span class="font-semibold">As-Is / To-Be, BPM Bizagi</span>), operations and <span class="font-semibold">reverse logistics</span> optimization, and implementation of technology solutions (<span class="font-semibold">ERP/Odoo</span>, IT support). Expert in process automation, continuous improvement, and profitability analysis, capable of transforming complex operations into efficient and measurable flows.',
+        "skill-logistics": "Reverse Logistics",
+        "skill-digital": "Digital Transformation",
+        "experience-title": "Professional Experience",
+        "job1-title": "Operations and Services Strategist",
+        "job1-company": "Marshall Service | 2018 – Present",
+        "job1-li1": "Operational optimization: Transformed a workshop into a 360° Comprehensive Service Center.",
+        "job1-li2": 'Developed Quotation WebApp reducing <span class="font-semibold">40% response time.</span>',
+        "job1-li3": "Implemented ERP (Odoo) improving financial and inventory control.",
+        "job2-title": "Reverse Logistics Analyst",
+        "job2-company": "EnvíoPack | 2023 – 2024",
+        "job2-li1": "Managed returns, reducing inventory losses.",
+        "job2-li2": "Analyzed returned products for resale strategies.",
+        "job3-title": "Tier 1 Solutions Specialist",
+        "job3-company": "NTT DATA | 2022 – 2023",
+        "job3-li1": "Resolved Service Desk incidents, meeting SLA.",
+        "job3-li2": 'Documented technical solutions improving efficiency by <span class="font-semibold">30%</span>.',
+        "job4-title": "Systems and Marketing Intern",
+        "job4-company": "Remax | 2020 – 2021", // Corregido a Remax
+        "job4-li1": "IT support and equipment maintenance.",
+        "job4-li2": "Designed basic digital marketing materials.",
+        "job5-title": "Business Process Intern",
+        "job5-company": "Klassco | 2018 – 2019", // Corregido a Klassco
+        "job5-li1": "Mapped and documented critical processes (Bizagi).",
+        "job5-li2": "Developed manuals and technical guides.",
+        "education-title": "Education",
+        "degree-link": "Bachelor's Degree in ICT Engineering",
+        "degree-institution": "– Universidad Mexiquense del Bicentenario (2017 – 2021)",
+        "cert-title": "Certifications",
+        "cert1": "Scrum Fundamentals Certified / Scrum Master – CertiProf",
+        "cert2": "Project Management Professional Certificate – Google",
+        "cert3": "Project Management Fundamentals – Google / Coursera",
+        "cert4": "Process Optimization and BPM – Platzi",
+        "cert5": "ERP/Odoo",
+        "cert6": "Prompt Engineering / ChatGPT",
+        "footer-cta": "Shall We Work Together?",
+        "footer-text": "Available for opportunities in process analysis, logistics optimization, and digital transformation.",
+        "footer-credits": "Portfolio designed with Tailwind CSS.",
+      }
+    };
+
+    let currentLanguage = 'es'; // Estado inicial
+
+    // Función principal para cambiar de idioma
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+      updateContent(currentLanguage);
+    }
+
+    // Función para actualizar el contenido de la web
+    function updateContent(lang) {
+      const texts = translations[lang];
+
+      // 1. Traducir elementos con data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (texts[key]) {
+          // Usar innerHTML para permitir etiquetas como <span> en el texto
+          element.innerHTML = texts[key]; 
+        }
+      });
+      
+      // 2. Actualizar el texto de los botones de idioma
+      const newButtonText = lang === 'es' ? 'English' : 'Español';
+      document.getElementById('lang-button-desktop').textContent = newButtonText;
+      
+      // El botón móvil usa la clave de traducción 'switch-to-lang', solo se actualiza el <span>
+      const mobileSpan = document.querySelector('#lang-button-mobile span[data-i18n="switch-to-lang"]');
+      if(mobileSpan) {
+        mobileSpan.textContent = texts['switch-to-lang'];
+      }
+
+      // 3. Actualizar el atributo lang de la etiqueta HTML
+      document.documentElement.lang = lang;
+      
+      // 4. Actualizar el título de la página
+      document.title = lang === 'es' ? 'Aldo Monroy - Analista de Procesos' : 'Aldo Monroy - Process Analyst';
+    }
+
+    // Script para alternar el menú en dispositivos móviles
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Cierra el menú si se hace clic fuera o se navega (opcional)
+    const mobileLinks = document.querySelectorAll('#menu a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+        }
+      });
+    });
+    
+    // Inicializar el contenido en el idioma por defecto (Español) al cargar la página
+    window.onload = () => {
+        updateContent(currentLanguage);
+    };
+
+  </script>
 </body>
 </html>
